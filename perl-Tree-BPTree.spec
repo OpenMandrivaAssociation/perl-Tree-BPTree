@@ -13,6 +13,7 @@ Url:		    http://search.cpan.org/dist/%{module}/
 Source:		    http://www.cpan.org/modules/by-module/Tree/%{module}-%{version}.tar.bz2
 Buildrequires:	perl(Module::Build)
 BuildArch:	    noarch
+BuildRoot:	    %{_tmppath}/%{name}-%{version}
 
 %description
 This is a Perl implementation of B+ trees. I have based this
