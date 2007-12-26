@@ -1,7 +1,7 @@
 %define module Tree-BPTree
 %define name	perl-%{module}
-%define version 1.07
-%define release %mkrel 3
+%define version 1.08
+%define release %mkrel 1
 
 Name:		    %{name}
 Version:	    %{version}
@@ -28,15 +28,15 @@ uniqueness of keys, if requested.
 %setup -q -n %{module}-%{version} 
 
 %build
-%{__perl} Build.PL installdirs=vendor
-./Build
+%{__perl} Makefile.PL INSTALLDIRS=vendor
+%make
 
 %check
-./Build test
+%__make test
 
 %install
 rm -rf %{buildroot}
-./Build install destdir=%{buildroot}
+%makeinstall_std
 
 %clean 
 rm -rf %{buildroot}
@@ -46,4 +46,3 @@ rm -rf %{buildroot}
 %doc Changes README
 %{perl_vendorlib}/Tree
 %{_mandir}/*/*
-
