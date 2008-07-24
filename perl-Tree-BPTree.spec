@@ -1,7 +1,7 @@
 %define module Tree-BPTree
 %define name	perl-%{module}
 %define version 1.08
-%define release %mkrel 1
+%define release %mkrel 3
 
 Name:		    %{name}
 Version:	    %{version}
