@@ -1,19 +1,19 @@
-%define module Tree-BPTree
-%define name	perl-%{module}
-%define version 1.08
-%define release %mkrel 4
+%define upstream_name    Tree-BPTree
+%define upstream_version 1.08
 
-Name:		    %{name}
-Version:	    %{version}
-Release:	    %{release}
-Summary:	    Perl implementation of B+ trees
-License:	    GPL or Artistic
-Group:		    Development/Perl
-Url:		    http://search.cpan.org/dist/%{module}/
-Source:		    http://www.cpan.org/modules/by-module/Tree/%{module}-%{version}.tar.bz2
+Name:       perl-%{upstream_name}
+Version:    %perl_convert_version %{upstream_version}
+Release:    %mkrel 1
+
+Summary:	Perl implementation of B+ trees
+License:	GPL+ or Artistic
+Group:		Development/Perl
+Url:		http://search.cpan.org/dist/%{upstream_name}/
+Source0:	http://www.cpan.org/modules/by-module/Tree/%{upstream_name}-%{upstream_version}.tar.bz2
+
 Buildrequires:	perl(Module::Build)
 BuildArch:	    noarch
-BuildRoot:	    %{_tmppath}/%{name}-%{version}
+BuildRoot:	    %{_tmppath}/%{name}-%{version}-%{release}
 
 %description
 This is a Perl implementation of B+ trees. I have based this
@@ -25,7 +25,7 @@ uniqueness of keys, if requested.
 
 
 %prep
-%setup -q -n %{module}-%{version} 
+%setup -q -n %{upstream_name}-%{upstream_version}
 
 %build
 %{__perl} Makefile.PL INSTALLDIRS=vendor
